@@ -23,6 +23,7 @@ export default {
 				return {
 					count: 0,
 					data: [1, 2, 3, 4],
+					rawHtml: "<br/>11111",
 				};
 			},
 			render() {
@@ -34,6 +35,7 @@ export default {
 								{v}
 							</>
 						))}
+						<div v-html={this.rawHtml}></div>
 					</div>
 				);
 			},
@@ -54,6 +56,6 @@ export default {
 	<div>
 		{{ message }}
 		<Test />
-		<p>Using v-html directive: <span v-html="rawHtml"></span></p>
+		<!-- <p>Using v-html directive: <span v-html="rawHtml"></span></p> -->
 	</div>
 </template>
