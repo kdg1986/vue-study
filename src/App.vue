@@ -1,11 +1,39 @@
 <script>
 import {withModifiers, defineComponent} from "vue";
+import Composition from "./Composition.vue";
+
+const Test = {
+	data() {
+		return {
+			count: 0,
+			data: [1, 2, 3, 4],
+			rawHtml: "<br/>11111",
+		};
+	},
+	render() {
+		return (
+			<div>
+				{this.data.map(v => (
+					<>
+						<br />
+						{v}
+					</>
+				))}
+				<div v-html={this.rawHtml}></div>
+			</div>
+		);
+	},
+};
 
 export default {
 	data() {
 		return {
 			message: "Hello World",
 			rawHtml: "<br/>11111",
+			dynamicId: "dynamicId111",
+			seen: "1",
+			attributeName: "click",
+			url: "alert(1)",
 		};
 	},
 	mounted: function () {
@@ -18,28 +46,8 @@ export default {
 		console.log(`beforeUpdate => ${this.message}`);
 	},
 	components: {
-		Test: {
-			data() {
-				return {
-					count: 0,
-					data: [1, 2, 3, 4],
-					rawHtml: "<br/>11111",
-				};
-			},
-			render() {
-				return (
-					<div onClick={() => this.data.push(1)}>
-						{this.data.map(v => (
-							<>
-								<br />
-								{v}
-							</>
-						))}
-						<div v-html={this.rawHtml}></div>
-					</div>
-				);
-			},
-		},
+		Test,
+		Composition,
 	},
 };
 </script>
@@ -54,8 +62,13 @@ export default {
 
 <template>
 	<div>
-		{{ message }}
-		<Test />
-		<!-- <p>Using v-html directive: <span v-html="rawHtml"></span></p> -->
+		<!-- {{ message }}
+		<button v-bind:id="`list-${dynamicId}`">dynamicId</button><br />
+		<span :title="(() => 'helo')()"> 123 </span><br />
+		<p v-if="seen">Now you see me</p>
+		<br />
+		<a :[`on${attributeName}`]="url">naver</a> -->
+
+		<Composition />
 	</div>
 </template>
