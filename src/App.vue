@@ -1,6 +1,6 @@
 <script>
 import {withModifiers, defineComponent} from "vue";
-import Composition from "./Composition.vue";
+import Composition from "./Composition";
 
 const Test = {
 	data() {
@@ -69,6 +69,6 @@ export default {
 		<br />
 		<a :[`on${attributeName}`]="url">naver</a> -->
 
-		<Composition />
+		<Composition class="baz boo" v-if="true" />
 	</div>
 </template>
