@@ -1,10 +1,11 @@
 <script setup>
 import {reactive, nextTick, ref, computed, watch, onMounted} from "vue";
-
+import ButtonCounter from "./ButtonCounter.vue";
+import BlogPost from "./BlogPost";
 onMounted(() => {
 	console.log(document);
 });
-
+const postFontSize = ref(1);
 const state = reactive({count: 0});
 const watchstate = reactive({count: 0});
 const cc = reactive({value: 0});
@@ -97,7 +98,7 @@ watch(
 	</button>
 	<br />
 	-->
-	<button @click="ifelse = !ifelse">
+	<!-- <button @click="ifelse = !ifelse">
 		{{ ifelse }}</button
 	><br />
 	<h1 v-if="ifelse">Vue is awesome!</h1>
@@ -136,7 +137,7 @@ watch(
 
 	{{ text }}
 	<br />
-	<br />
+	<br /> -->
 	<!-- {{ selected }}
 	<select v-model="selected" multiple>
 		<option disabled value="">Please select one</option>
@@ -145,7 +146,7 @@ watch(
 		<option>C</option>
 	</select> -->
 
-	<br />
+	<!-- <br />
 	<br />
 	<select v-model="selected">
 		<option v-for="option in options">
@@ -159,7 +160,7 @@ watch(
 	<input v-model="todoId" />
 	<br />
 
-	{{ data }}
+	{{ data }} -->
 
 	<!-- reactive :
 	<button v-on:click="increment">
@@ -173,4 +174,9 @@ watch(
 	<button v-on:click="foo++">
 		{{ foo }}</button
 	><br /> -->
+	<!-- <ButtonCounter /> -->
+
+	<BlogPost title="1111" @enlarge-text="postFontSize += 0.1">
+		{{ postFontSize }}
+	</BlogPost>
 </template>

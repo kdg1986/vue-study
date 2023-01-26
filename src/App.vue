@@ -1,55 +1,55 @@
-<script>
+<script setup>
 import {withModifiers, defineComponent} from "vue";
 import Composition from "./Composition";
 
-const Test = {
-	data() {
-		return {
-			count: 0,
-			data: [1, 2, 3, 4],
-			rawHtml: "<br/>11111",
-		};
-	},
-	render() {
-		return (
-			<div>
-				{this.data.map(v => (
-					<>
-						<br />
-						{v}
-					</>
-				))}
-				<div v-html={this.rawHtml}></div>
-			</div>
-		);
-	},
-};
+// const Test = {
+// 	data() {
+// 		return {
+// 			count: 0,
+// 			data: [1, 2, 3, 4],
+// 			rawHtml: "<br/>11111",
+// 		};
+// 	},
+// 	render() {
+// 		return (
+// 			<div>
+// 				{this.data.map(v => (
+// 					<>
+// 						<br />
+// 						{v}
+// 					</>
+// 				))}
+// 				<div v-html={this.rawHtml}></div>
+// 			</div>
+// 		);
+// 	},
+// };
 
-export default {
-	data() {
-		return {
-			message: "Hello World",
-			rawHtml: "<br/>11111",
-			dynamicId: "dynamicId111",
-			seen: "1",
-			attributeName: "click",
-			url: "alert(1)",
-		};
-	},
-	mounted: function () {
-		this.message = "Hello World1";
-	},
-	updated: function () {
-		console.log(`updated => ${this.message}`);
-	},
-	beforeUpdate: function () {
-		console.log(`beforeUpdate => ${this.message}`);
-	},
-	components: {
-		Test,
-		Composition,
-	},
-};
+// export default {
+// 	data() {
+// 		return {
+// 			message: "Hello World",
+// 			rawHtml: "<br/>11111",
+// 			dynamicId: "dynamicId111",
+// 			seen: "1",
+// 			attributeName: "click",
+// 			url: "alert(1)",
+// 		};
+// 	},
+// 	mounted: function () {
+// 		this.message = "Hello World1";
+// 	},
+// 	updated: function () {
+// 		console.log(`updated => ${this.message}`);
+// 	},
+// 	beforeUpdate: function () {
+// 		console.log(`beforeUpdate => ${this.message}`);
+// 	},
+// 	components: {
+// 		Test,
+// 		Composition,
+// 	},
+// };
 </script>
 
 <style>
